@@ -60,11 +60,15 @@ def prepare_expression(expression):
     return expression, replacements
 
 
-if __name__ == '__main__':
-    a = input()
-
+def solve(string):
     expression, replacements = prepare_expression(a)
     serialized_expression = serialize(expression)
     total_expression = serialize_brakets(serialized_expression, replacements)
 
-    print(total_expression)
+    return total_expression
+
+
+if __name__ == '__main__':
+    a = input()
+
+    print(solve(a))
