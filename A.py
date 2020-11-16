@@ -10,8 +10,7 @@ def serialize_and(expression):
 
         return expression
 
-    A = expression.rsplit('&', maxsplit=1)[0]
-    B = expression.rsplit('&', maxsplit=1)[1]
+    A, B = expression.rsplit('&', maxsplit=1)
 
     return f"(&,{serialize_and(A)},{serialize_and(B)})"
 
@@ -20,8 +19,7 @@ def serialize_or(expression):
     if len(expression.split('|', maxsplit=1)) == 1:
         return serialize_and(expression)
 
-    A = expression.split('|', maxsplit=1)[0]
-    B = expression.split('|', maxsplit=1)[1]
+    A, B = expression.split('|', maxsplit=1)
 
     return f"(|,{serialize_or(A)},{serialize_or(B)})"
 
@@ -36,8 +34,7 @@ def serialize(expression):
 
         return serialize_or(expression)
 
-    A = expression.split('->', maxsplit=1)[0]
-    B = expression.split('->', maxsplit=1)[1]
+    A, B = expression.split('->', maxsplit=1)
 
     return f"(->,{serialize(A)},{serialize(B)})"
 
