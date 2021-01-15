@@ -1,3 +1,4 @@
-all: ;
+all:
+	g++ -std=c++17 -o sol sol.cpp
 run:
-	python3 A.py
+	./sol

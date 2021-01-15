@@ -53,10 +53,6 @@ def serialize_brakets(expression, replacement):
 
         expression = expression.replace(key, new_value)
 
-    for key in keys:
-        if key in expression:
-            expression = serialize_brakets(expression, replacement)
-
     return expression
 
 
